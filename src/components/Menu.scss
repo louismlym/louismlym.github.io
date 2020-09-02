@@ -1,0 +1,64 @@
+.lm-menu-box {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  .lm-menu-backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(238, 238, 238, .7);
+    animation: fadein 0.6s;
+    left: 0;
+    &.unmounting {
+      animation: fadeout 0.6s;
+    }
+  }
+  .lm-menu-content {
+    background-color: white;
+    position: fixed;
+    height: 100%;
+    min-width: 450px;
+    right: 0;
+    animation: fromRight 0.6s;
+    &.unmounting {
+      animation: toRight 0.6s;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fromRight {
+  from {
+    right: -450px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes toRight {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -450px;
+  }
+}

@@ -1,0 +1,14 @@
+.lm-logo {
+  position: relative;
+  transition-duration: 0.2s;
+  margin: auto 0;
+  path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 0.7;
+  }
+  &:hover {
+    transform: translate3d(10px, 0, 0);
+  }
+}

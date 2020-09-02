@@ -1,0 +1,33 @@
+.hamburger-menu {
+  cursor: pointer;
+  fill: none;
+  margin: auto 0;
+  z-index: 101;
+  padding: 14px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.5s;
+  path {
+    stroke-width: 0.5;
+    transition: d 0.5s, opacity 0.5s;
+  }
+  &.clicked {
+    :nth-child(1) {
+      d: path("M3,4 l8 6");
+    }
+    :nth-child(2) {
+      opacity: 0;
+    }
+    :nth-child(3) {
+      d: path("M11 4 l-8 6");
+    }
+  }
+  &:hover {
+    mix-blend-mode: exclusion;
+    border-radius: 50%;
+    path {
+      stroke: white;
+      mix-blend-mode: exclusion;
+    }
+  }
+}
