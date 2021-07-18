@@ -13,18 +13,24 @@ class NavigationBar extends React.Component {
   }
 
   handleMenuClick() {
-    this.setState(state => ({
-      showMenu: !state.showMenu
-    }));
+    this.setState(state => {
+      let newShowMenu = !state.showMenu;
+      if (newShowMenu) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+      return {showMenu: newShowMenu};
+    });
   }
 
   render() {
     return (
-      <header className="navbar">
+      <nav className="navbar">
         <Logo width="50px" height="50px" stroke="black" />
-        <HamburgerMenu width="40px" height="40px" stroke="black" onClick={() => this.handleMenuClick()} />
-        <Menu delayTime={500} isMounted={this.state.showMenu}/>
-      </header>
+        <HamburgerMenu width="40px" height="40px" stroke="white" showMenu={this.state.showMenu} onClick={() => this.handleMenuClick()} />
+        <Menu delayTime={500} isMounted={this.state.showMenu} onClick={() => this.handleMenuClick()}/>
+      </nav>
     );
   }
 }

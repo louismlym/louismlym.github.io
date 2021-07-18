@@ -4,30 +4,22 @@ import './HamburgerMenu.scss';
 class HamburgerMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showMenu: false
-    };
-  }
-
-  handleClick() {
-    this.props.onClick();
-    this.setState(state => ({
-      showMenu: !state.showMenu
-    }));
   }
 
   render() {
     return (
-      <svg 
-        width={this.props.width} 
-        height={this.props.height} 
-        viewBox="0 0 14 14" 
-        className={"hamburger-menu " + (this.state.showMenu ? "clicked" : "")}
-        onClick={() => this.handleClick()}>
-        <path stroke={this.props.stroke} d="M2 4 l10 0" />
-        <path stroke={this.props.stroke} d="M2 7 l10 0" />
-        <path stroke={this.props.stroke} d="M2 10 l10 0" />
-      </svg>
+      <button className={"hamburger-menu " + (this.props.showMenu ? "clicked" : "")} onClick={() => this.props.onClick()}>
+        <svg 
+          width={this.props.width} 
+          height={this.props.height} 
+          viewBox="0 0 14 14">
+          <g stroke={this.props.stroke} strokeWidth={0.5}>
+            <path d="M2 4 l10 0" />
+            <path d="M2 7 l10 0" />
+            <path d="M2 10 l10 0" />
+          </g>
+        </svg>
+      </button>
     );
   }
 }

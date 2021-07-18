@@ -1,10 +1,11 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 2vmin 3vmin;
+  padding: 3vmin 3vmin;
   
   .hamburger-menu {
-    position: sticky;
+    position: fixed;
+    right: 0;
     margin-right: 20px;
   }
 }

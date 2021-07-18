@@ -11,7 +11,7 @@ class Menu extends React.Component {
 
     return (
       <div className={"lm-menu-box"} >
-        <div className={"lm-menu-backdrop " + additionalClass}></div>
+        <div className={"lm-menu-backdrop " + additionalClass} onClick={() => this.props.onClick()}></div>
         <div className={"lm-menu-content " + additionalClass}></div>
       </div>
     );

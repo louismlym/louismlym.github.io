@@ -5,10 +5,12 @@
   z-index: 101;
   padding: 14px;
   border-radius: 50%;
-  background-color: white;
+  border-width: 0;
   transition: 0.5s;
+  background: none;
+  outline: none;
+  mix-blend-mode: difference;
   path {
-    stroke-width: 0.5;
     transition: d 0.5s, opacity 0.5s;
   }
   &.clicked {
@@ -23,11 +25,10 @@
     }
   }
   &:hover {
-    mix-blend-mode: exclusion;
+    background-color: white;
     border-radius: 50%;
     path {
-      stroke: white;
-      mix-blend-mode: exclusion;
+      stroke: black;
     }
   }
 }
