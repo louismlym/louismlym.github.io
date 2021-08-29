@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+  withRouter,
   BrowserRouter as Router,
   Route,
   Switch,
@@ -13,7 +14,7 @@ import { ScrollView } from 'react-native';
 import AboutMe from './pages/AboutMe';
 import Performances from './pages/Performances';
 
-function App() {
+class App extends React.Component {
 //   if (window.addEventListener) document.addEventListener('DOMMouseScroll', wheel, { passive: false });
 //   // window.addEventListener('mousewheel', wheel, { passive: false });
 //   // document.addEventListener('mousewheel', wheel, { passive: false });
@@ -65,30 +66,23 @@ function App() {
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, []);
 
-  return (
-    <div id="lm-portfolio">
-      <Cursor/>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/about-me">
-            <AboutMe />
-          </Route>
-          <Route exact path="/resume">
-            <Resume />
-          </Route>
-          <Route exact path="/projects">
-            <Projects />
-          </Route>
-          <Route exact path="/performances">
-            <Performances />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+  render() {
+    return (
+      <div id="lm-portfolio">
+        <Cursor/>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about-me" component={AboutMe} />
+            <Route path="/resume" component={Resume} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/performances" component={Performances} />
+            <Route component={Home} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
