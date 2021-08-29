@@ -10,8 +10,6 @@ class ContentItem extends React.Component {
     };
     this.imageRef = React.createRef();
     this.contentItem = React.createRef();
-    this.imageContainer = React.createRef();
-    this.imageContainer2 = React.createRef();
   }
 
   componentDidMount() {
