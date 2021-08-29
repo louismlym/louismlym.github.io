@@ -5,6 +5,7 @@ import DivToShowHide from '../components/DivToShowHide';
 import './AboutMe.scss'
 import { parallax } from '../utils/utils';
 import { Helmet } from 'react-helmet';
+import Cursor from '../Cursor';
 
 class AboutMe extends React.Component {
   constructor(props) {
@@ -12,12 +13,10 @@ class AboutMe extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("load", () => {
-      document.querySelectorAll("#about-me-hero .div-to-show-hide").forEach(el => {
-        el.classList.remove("before-scroll");
-        el.classList.add("after-scroll");
-        el.style.display = "block";
-      });
+    document.querySelectorAll("#about-me-hero .div-to-show-hide").forEach(el => {
+      el.classList.remove("before-scroll");
+      el.classList.add("after-scroll");
+      el.style.display = "block";
     });
     parallax(document.querySelector("#about-me-hero img"), -0.2, false, false);
   }
@@ -59,6 +58,7 @@ class AboutMe extends React.Component {
         <Helmet>
           <title>Louis Portfolio | About Me</title>
         </Helmet>
+        <Cursor />
         <NavigationBar />
         <div id="about-me-hero">
           {louisMaliyam}

@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import './Home.scss'
 import { parallax } from '../utils/utils';
 import { Helmet } from 'react-helmet';
+import Cursor from '../Cursor';
 
 class Home extends React.Component {
   constructor(props) {
@@ -13,12 +14,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("load", () => {
-      document.querySelector("#intro-para").classList.remove("before-scroll");
-      document.querySelector("#intro-para").classList.add("after-scroll");
-      document.querySelector("#intro-para").style.display = "block";
-      //setTimeout(() => parallax(document.querySelector("#intro-para"), 0.6), 500);
-    });
+    document.querySelector("#intro-para").classList.remove("before-scroll");
+    document.querySelector("#intro-para").classList.add("after-scroll");
+    document.querySelector("#intro-para").style.display = "block";
+    //setTimeout(() => parallax(document.querySelector("#intro-para"), 0.6), 500);
     //parallax(document.querySelector(".full-name"), -0.3);
 
     var lastPos, delta;
@@ -69,6 +68,7 @@ class Home extends React.Component {
         <Helmet>
           <title>Louis Portfolio</title>
         </Helmet>
+        <Cursor />
         <NavigationBar />
         <div className="lm-hero">
           <h1 className="full-name noselect"><span className="louis-text">Louis</span> <span className="maliyam-text">Maliyam</span></h1>

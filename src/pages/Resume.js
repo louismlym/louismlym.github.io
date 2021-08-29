@@ -5,6 +5,7 @@ import './Resume.scss'
 import PDFViewer from 'pdf-viewer-reactjs-bulma-wrapped';
 import 'pdf-viewer-reactjs-bulma-wrapped/css/main.css';
 import { Helmet } from 'react-helmet';
+import Cursor from '../Cursor';
 
 class Resume extends React.Component {
   constructor(props) {
@@ -46,9 +47,10 @@ class Resume extends React.Component {
         <Helmet>
           <title>Louis Portfolio | Resume</title>
         </Helmet>
+        <Cursor />
         <NavigationBar />
         <div id="resume-hero">
-          <a class="ignore-a" target="_blank" href="/files/Louis_Resume.pdf">
+          <a className="ignore-a" target="_blank" href="/files/Louis_Resume.pdf">
             <h1>Resume</h1>
           </a>
         </div>

@@ -5,6 +5,7 @@ import './Projects.scss'
 import ProjectsContainer from '../components/ProjectsContainer';
 import colors from '../constants.scss';
 import { Helmet } from 'react-helmet';
+import Cursor from '../Cursor';
 
 class Projects extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Projects extends React.Component {
         <Helmet>
           <title>Louis Portfolio | Projects</title>
         </Helmet>
+        <Cursor />
         <NavigationBar backgroundColor={colors.alicaBlue} />
         <div id="projects-hero">
           <h1>Projects</h1>

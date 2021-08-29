@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
-  withRouter,
-  BrowserRouter as Router,
   Route,
-  Switch,
+  Switch
 } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 import './App.css';
-import Cursor from './Cursor';
-import { ScrollView } from 'react-native';
 import AboutMe from './pages/AboutMe';
 import Performances from './pages/Performances';
 
@@ -69,8 +65,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="lm-portfolio">
-        <Cursor/>
-        <Router>
+        {/* <Router basename={process.env.PUBLIC_URL}> */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about-me" component={AboutMe} />
@@ -79,10 +74,10 @@ class App extends React.Component {
             <Route path="/performances" component={Performances} />
             <Route component={Home} />
           </Switch>
-        </Router>
+        {/* </Router> */}
       </div>
     );
   }
 }
 
-export default withRouter(App);
+export default App;

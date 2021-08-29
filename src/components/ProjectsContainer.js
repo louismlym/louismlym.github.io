@@ -11,12 +11,10 @@ class ProjectsContainer extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("load", () => {
-      document.querySelectorAll("#dog-breed-content-item .div-to-show-hide").forEach(el => {
-        el.classList.remove("before-scroll");
-        el.classList.add("after-scroll");
-        el.style.display = "block";
-      });
+    document.querySelectorAll("#dog-breed-content-item .div-to-show-hide").forEach(el => {
+      el.classList.remove("before-scroll");
+      el.classList.add("after-scroll");
+      el.style.display = "block";
     });
     document.querySelectorAll("#dog-breed h2").forEach(el => {
       el.addEventListener("mouseover", () => {

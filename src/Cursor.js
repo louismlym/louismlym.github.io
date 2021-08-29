@@ -27,8 +27,10 @@ class Cursor extends React.Component {
     document.querySelector(".lm-logo").addEventListener("mouseout", () => this.onMouseOut());
     document.querySelectorAll("a:not(.ignore-a)").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(4, null)));
     document.querySelectorAll("a:not(.ignore-a)").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
-    document.querySelectorAll("button:not(.hamburger-menu)").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(7, null)));
-    document.querySelectorAll("button:not(.hamburger-menu)").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
+    if (document.querySelector("button:not(.hamburger-menu)") != null) {
+      document.querySelectorAll("button:not(.hamburger-menu)").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(7, null)));
+      document.querySelectorAll("button:not(.hamburger-menu)").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
+    }
     document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(3, null)));
     document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
     // document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(0, null)));

@@ -5,6 +5,7 @@ import DivToShowHide from '../components/DivToShowHide';
 import './Performances.scss'
 import PerformanceItem from '../components/PerformanceItem';
 import { Helmet } from 'react-helmet';
+import Cursor from '../Cursor';
 
 class Performances extends React.Component {
   constructor(props) {
@@ -12,12 +13,10 @@ class Performances extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("load", () => {
-      document.querySelectorAll("#performances-hero .div-to-show-hide").forEach(el => {
-        el.classList.remove("before-scroll");
-        el.classList.add("after-scroll");
-        el.style.display = "block";
-      });
+    document.querySelectorAll("#performances-hero .div-to-show-hide").forEach(el => {
+      el.classList.remove("before-scroll");
+      el.classList.add("after-scroll");
+      el.style.display = "block";
     });
     document.querySelectorAll("#performances iframe").forEach(el => {
       el.addEventListener("mouseover", () => {
@@ -95,6 +94,7 @@ class Performances extends React.Component {
         <Helmet>
           <title>Louis Portfolio | Performances</title>
         </Helmet>
+        <Cursor />
         <NavigationBar backgroundColor={"black"} />
         <div id="performances-hero">
           {performances}

@@ -5,6 +5,7 @@ import './ContentItem.scss';
 import DivToShowHide from './DivToShowHide';
 import { parallax } from '../utils/utils';
 import colors from '../constants.scss';
+import { Link } from 'react-router-dom';
 
 class ContentsContainer extends React.Component {
   constructor(props) {
@@ -94,9 +95,9 @@ class ContentsContainer extends React.Component {
           animationTime="1.5s" />
         <DivToShowHide
           initialStyles="top: 72%;"
-          element={<a href="/about-me" className="link-button ignore-a">
+          element={<Link to="/about-me" className="link-button ignore-a">
             <button id="about-me-btn" className="no-select">About Me</button>
-            </a>}
+            </Link>}
           animationTime="1.5s" />
       </div>
     );
@@ -115,9 +116,9 @@ class ContentsContainer extends React.Component {
           animationTime="1.5s" />
         <DivToShowHide
           initialStyles="top: 72%;"
-          element={<a href="/projects" className="link-button ignore-a">
+          element={<Link to="/projects" className="link-button ignore-a">
             <button id="projects-btn" className="no-select">Projects</button>
-            </a>}
+            </Link>}
           animationTime="1.5s" />
       </div>
     );
@@ -136,9 +137,9 @@ class ContentsContainer extends React.Component {
           animationTime="1.5s" />
         <DivToShowHide
           initialStyles="top: 72%;"
-          element={<a href="/performances" className="link-button ignore-a">
+          element={<Link to="/performances" className="link-button ignore-a">
             <button id="performances-btn" className="no-select">Performances</button>
-            </a>}
+            </Link>}
           animationTime="1.5s" />
       </div>
     );

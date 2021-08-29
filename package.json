@@ -1,6 +1,6 @@
 {
-  "name": "portfolio",
-  "homepage": "https://louismlym.github.io/portfolio",
+  "name": "louismlym",
+  "homepage": "https://louismlym.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

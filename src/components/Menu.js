@@ -1,6 +1,7 @@
 import React from 'react';
 import {delayUnmounting} from '../utils/utils';
 import './Menu.scss';
+import { Link } from 'react-router-dom';
 
 class Menu extends React.Component {
   componentDidMount() {
@@ -37,14 +38,14 @@ class Menu extends React.Component {
         <div className={"lm-menu-backdrop " + additionalClass} onClick={() => this.props.onClick(false)}></div>
         <div className={"lm-menu-content " + additionalClass}>
           <div className={"lm-menu-items"}>
-            <a href="/about-me">About Me</a>
-            <a href="/resume">Resume</a>
-            <a href="/projects">Projects</a>
-            <a href="/performances">Performances</a>
-            <a href="/">Book Recommendations</a>
-            {/* <a href="/">Contacts</a> */}
+            <Link to="/about-me">About Me</Link>
+            <Link to="/resume">Resume</Link>
+            <Link to="/projects">Projects</Link>
+            <Link to="/performances">Performances</Link>
+            {/* <Link to="/">Book Recommendations</Link> */}
+            {/* <Link to="/">Contacts</a> */}
             <div className={"lm-menu-icons"}>
-              <a href="mailto:maliyp@cs.washington.edu"><img src="/images/mail_icon.png" /></a>
+              <a target="mailto:maliyp@cs.washington.edu"><img src="/images/mail_icon.png" /></a>
               <a target="_blank" href="https://www.linkedin.com/in/louis-maliyam/"><img src="/images/linkedin_icon.png" /></a>
               <a target="_blank" href="https://github.com/louismlym"><img src="/images/github_icon.png" /></a>
             </div>

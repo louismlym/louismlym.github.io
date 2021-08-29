@@ -15,11 +15,6 @@ class NavigationBar extends React.Component {
   handleMenuClick(forceShowMenu) {
     this.setState(state => {
       let newShowMenu = forceShowMenu ? forceShowMenu : !state.showMenu;
-      if (newShowMenu) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'auto';
-      }
       return {showMenu: newShowMenu};
     });
   }
@@ -30,6 +25,12 @@ class NavigationBar extends React.Component {
       navBarStyle = {
         backgroundColor: this.props.backgroundColor
       };
+    }
+
+    if (this.state.showMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
     }
 
     return (
