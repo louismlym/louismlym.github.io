@@ -1,0 +1,16 @@
+.performance-item {
+  position: relative;
+  width: calc(100% - 140px);
+  min-height: 115vh;
+  height: fit-content;
+  padding: 0 70px;
+  display: flex;
+  background-color: black;
+}
+
+.performance-item-content {
+  min-height: 100%;
+  width: 100%;
+  height: fit-content;
+  color: white;
+}

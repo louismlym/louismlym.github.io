@@ -1,6 +1,10 @@
 import React from 'react';
 import ContentItem from './ContentItem';
 import './ContentsContainer.scss';
+import './ContentItem.scss';
+import DivToShowHide from './DivToShowHide';
+import { parallax } from '../utils/utils';
+import colors from '../constants.scss';
 
 class ContentsContainer extends React.Component {
   constructor(props) {
@@ -11,6 +15,7 @@ class ContentsContainer extends React.Component {
     this.nextContent = React.createRef();
     this.imageContainers = [React.createRef(), React.createRef()];
     this.imageSources = ["images/1_loading_1.PNG", "images/3_homepage_3.PNG"];
+    this.lastContent = React.createRef();
   }
 
   // componentDidMount() {
@@ -56,23 +61,126 @@ class ContentsContainer extends React.Component {
   //   }
   // }
 
+  componentDidMount() {
+    parallax(document.querySelector("#lm-live"), 0.2, false, true);
+    parallax(document.querySelector("#lm-code"), -0.2, false, true);
+    parallax(document.querySelector("#lm-dance"), -0.2, false, true);
+    // const getOffset = (element, horizontal = false) => {
+    //   if(!element) return 0;
+    //   return getOffset(element.offsetParent, horizontal) + (horizontal ? element.offsetLeft : element.offsetTop);
+    // }
+    // const live = document.querySelector("#lm-live");
+    // const originalTop = live.offsetTop;
+    // const originalParentffset = live.offsetParent.offsetTop;
+    // window.addEventListener("scroll", () => {
+    //   if (window.pageYOffset >= originalParentffset) {
+    //     live.style.top = `${originalTop + (window.pageYOffset - originalParentffset) * -0.30}px`;
+    //   } else {
+    //     live.style.top = `${originalTop}px`
+    //   }
+    // });
+  }
+
   render() {
+    const liveContent = (
+      <div id="lm-live" className="lm-content-left">
+        <DivToShowHide
+          initialStyles="left: -25px;"
+          element={<h2>Live.</h2>}
+          animationTime="1.5s" />
+        <DivToShowHide
+          initialStyles="top: 54%;"
+          element={<p>I'm a coder who is passionate in dance and believes in education. My goal is to know I live every day to the fullest.</p>}
+          animationTime="1.5s" />
+        <DivToShowHide
+          initialStyles="top: 72%;"
+          element={<a href="/about-me" className="link-button ignore-a">
+            <button id="about-me-btn" className="no-select">About Me</button>
+            </a>}
+          animationTime="1.5s" />
+      </div>
+    );
+
+    const codeContent = (
+      <div id="lm-code" className="lm-content-left">
+        <DivToShowHide
+          initialStyles="left: -25px;"
+          element={<h2>Code.</h2>}
+          animationTime="1.5s" />
+        <DivToShowHide
+          initialStyles="top: 54%;"
+          element={<p>My coding journey began since grade 10, and it hasn't stopped challenging me as a problem solver.
+            I'm thrilled how coding can create great impact on business and people.
+          </p>}
+          animationTime="1.5s" />
+        <DivToShowHide
+          initialStyles="top: 72%;"
+          element={<a href="/projects" className="link-button ignore-a">
+            <button id="projects-btn" className="no-select">Projects</button>
+            </a>}
+          animationTime="1.5s" />
+      </div>
+    );
+
+    const danceContent = (
+      <div id="lm-dance" className="lm-content-left">
+        <DivToShowHide
+          initialStyles="left: -25px;"
+          element={<h2>Dance.</h2>}
+          animationTime="1.5s" />
+        <DivToShowHide
+          initialStyles="top: 54%;"
+          element={<p>Dancing always bring me joys and keep me alive. It trains me to fail and be experimental.
+            Recognizing that there's something bigger than me when I'm on the stage is a magical moment.
+          </p>}
+          animationTime="1.5s" />
+        <DivToShowHide
+          initialStyles="top: 72%;"
+          element={<a href="/performances" className="link-button ignore-a">
+            <button id="performances-btn" className="no-select">Performances</button>
+            </a>}
+          animationTime="1.5s" />
+      </div>
+    );
+
     return (
       <div className={"lm-content-container"}>
         <ContentItem
-          contentRef={this.content}
-          imageSrc={"images/1_loading_1.PNG"}
-          hideImage={true}
-          attachTransitionImage={true}
-          imageRef={this.imageContainers[0]}
-          imageContainers={this.imageContainers}
-          imageSources={this.imageSources}/>
+          //contentRef={this.content}
+          imageSrc={"images/Louis_sunrise.jpg"}
+          imageParallaxSpeed={-0.3}
+          // hideImage={true}
+          // attachTransitionImage={true}
+          // imageRef={this.imageContainers[0]}
+          // imageContainers={this.imageContainers}
+          // imageSources={this.imageSources}
+          backgroundColor={"black"}
+          content={liveContent}/>
         <ContentItem
-          contentRef={this.nextContent}
-          imageSrc={"images/3_homepage_3.PNG"}
-          hideImage={true}
-          imageRef={this.imageContainers[1]}
-          backgroundColor={"#5091bf"}/>
+          //contentRef={this.nextContent}
+          // imageSrc={"images/3_homepage_3.PNG"}
+          // hideImage={true}
+          // imageRef={this.imageContainers[1]}
+          // backgroundColor={"#5091bf"}
+          imageSrc={"images/laptop_coding.png"}
+          imageStyles={{width: "50%"}}
+          imageLink={"/projects"}
+          imageParallaxSpeed={-0.2}
+          backgroundColor={colors.primaryColor}
+          content={codeContent}/>
+        <ContentItem
+          // imageSrc={"images/3_homepage_3.PNG"}
+          // hideImage={true}
+          // imageRef={this.imageContainers[1]}
+          // backgroundColor={"#5091bf"}
+          contentRef={this.lastContent}
+          imageSrc={"images/dance_homepage.jpg"}
+          //imageStyles={{width: "70%", boxShadow: "0px 0px 25px #FFFFFF"}}
+          imageStyles={{width: "65%"}}
+          imageParallaxSpeed={-0.2}
+          //noImageParallax={true}
+          backgroundColor={colors.accentColor}
+          content={danceContent}/>
       </div>
     );
   }

@@ -1,0 +1,17 @@
+$alica-blue: #E7ECEF;
+$yale-blue: #274C77;
+$primary-color: #6096BA;
+$accent-color: #274C77;
+$secondary-color: #022249;
+$secondary-accent-color: #56BDCA;
+$emerald: #33CA7F;
+$orange: #F07D42;
+
+:export {
+  alicaBlue: $alica-blue;
+  primaryColor: $primary-color;
+  accentColor: $accent-color;
+  secondaryColor: $secondary-color;
+  secondaryAccentColor: $secondary-accent-color;
+  orange: $orange;
+}

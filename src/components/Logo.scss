@@ -3,13 +3,23 @@
   position: relative;
   transition-duration: 0.2s;
   margin: auto 0;
+  mix-blend-mode: difference;
   path {
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 0.5;
+    stroke: white;
   }
   &:hover {
     transform: translate3d(10px, 0, 0);
   }
+}
+
+#logo-a::after {
+  height: 0px;
+}
+
+#logo-a::before {
+  height: 0px;
 }

@@ -12,9 +12,9 @@ class NavigationBar extends React.Component {
     };
   }
 
-  handleMenuClick() {
+  handleMenuClick(forceShowMenu) {
     this.setState(state => {
-      let newShowMenu = !state.showMenu;
+      let newShowMenu = forceShowMenu ? forceShowMenu : !state.showMenu;
       if (newShowMenu) {
         document.body.style.overflow = 'hidden';
       } else {
@@ -25,8 +25,15 @@ class NavigationBar extends React.Component {
   }
 
   render() {
+    let navBarStyle = {};
+    if (this.props.backgroundColor) {
+      navBarStyle = {
+        backgroundColor: this.props.backgroundColor
+      };
+    }
+
     return (
-      <nav className="navbar">
+      <nav className="navbar" style={navBarStyle}>
         <Logo width="50px" height="50px" stroke="black" />
         <HamburgerMenu width="40px" height="40px" stroke="white" showMenu={this.state.showMenu} onClick={() => this.handleMenuClick()} />
         <Menu delayTime={500} isMounted={this.state.showMenu} onClick={() => this.handleMenuClick()}/>

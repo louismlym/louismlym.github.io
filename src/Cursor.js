@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cursor.css';
+import './Cursor.scss';
 import classNames from "classnames";
 
 class Cursor extends React.Component {
@@ -17,12 +17,22 @@ class Cursor extends React.Component {
     document.addEventListener("mousemove", (e) => this.onMouseMove(e));
     document.addEventListener("mouseenter", () => this.onMouseEnter());
     document.addEventListener("mouseleave", () => this.onMouseLeave());
-    document.querySelector(".louis-text").addEventListener("mouseover", () => this.onMouseOver(45, "/images/Louis_home_picture.jpg"));
-    document.querySelector(".louis-text").addEventListener("mouseout", () => this.onMouseOut());
-    document.querySelector(".maliyam-text").addEventListener("mouseover", () => this.onMouseOver(35, "/images/Louis_home_picture_2.jpg"));
-    document.querySelector(".maliyam-text").addEventListener("mouseout", () => this.onMouseOut());
-    document.querySelector(".lm-logo").addEventListener("mouseover", () => this.onMouseOver(5, null));
+    if (document.querySelector(".louis-text") != null) {
+      document.querySelector(".louis-text").addEventListener("mouseover", () => this.onMouseOver(45, "/images/Louis_home_picture.jpg"));
+      document.querySelector(".louis-text").addEventListener("mouseout", () => this.onMouseOut());
+      document.querySelector(".maliyam-text").addEventListener("mouseover", () => this.onMouseOver(35, "/images/Louis_home_picture_2.jpg"));
+      document.querySelector(".maliyam-text").addEventListener("mouseout", () => this.onMouseOut());
+    }
+    document.querySelector(".lm-logo").addEventListener("mouseover", () => this.onMouseOver(8, null));
     document.querySelector(".lm-logo").addEventListener("mouseout", () => this.onMouseOut());
+    document.querySelectorAll("a:not(.ignore-a)").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(4, null)));
+    document.querySelectorAll("a:not(.ignore-a)").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
+    document.querySelectorAll("button:not(.hamburger-menu)").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(7, null)));
+    document.querySelectorAll("button:not(.hamburger-menu)").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
+    document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(3, null)));
+    document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
+    // document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseover", () => this.onMouseOver(0, null)));
+    // document.querySelectorAll(".hamburger-menu").forEach(el => el.addEventListener("mouseout", () => this.onMouseOut()));
   }
 
   componentWillUnmount() {
@@ -76,7 +86,9 @@ class Cursor extends React.Component {
     let style={
       left: `${this.state.position.x}px`,
       top: `${this.state.position.y}px`,
-      transform: `translate(-50%, -50%) scale(${this.state.scale})`
+      width: `${7 * this.state.scale}px`,
+      height: `${7 * this.state.scale}px`,
+      //transform: `translate(-50%, -50%) scale(${this.state.scale})`
     };
     if (this.state.picture != null) {
       style["backgroundImage"] = `url(${this.state.picture})`;

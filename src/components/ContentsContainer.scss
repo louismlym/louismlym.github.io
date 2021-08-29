@@ -1,5 +1,86 @@
+@import '../constants.scss';
+
 .lm-content-container {
   width: 100%;
   height: 100%;
+  position: relative;
   background-color: black;
+  z-index: 10;
+}
+
+.lm-content-left {
+  // position: absolute;
+  // top: 50%;
+  // transform: translate(0%, -50%);
+  height: 100%;
+  position: relative;
+  margin-left: 3vw;
+  .div-to-show-hide {
+    position: absolute;
+    transform: translate(0%, -50%);
+  }
+  :nth-child(1) {
+    left: 0;
+    top: 30%;
+  }
+  :nth-child(2) {
+    top: 50%;
+  }
+  :nth-child(3) {
+    top: 68%;
+  }
+  // h2, p {
+  //   display: block;
+  //   position: absolute;
+  //   transform: translate(0%, -50%);
+  // }
+  h2 {
+    font-size: 3.5vw;
+    letter-spacing: 6px;
+  }
+  p {
+    font-size: 1.7vw;
+  }
+  button {
+    display: inline-block;
+    cursor: pointer;
+    margin: auto;
+    width: 20vw;
+    height: 4.5vw;
+    border-radius: 50px;
+    font-size: 1.6vw;
+    border: 0;
+    transition: .2s ease-out;
+    text-align: center;
+    &:hover {
+      width: 21vw;
+    }
+  }
+  .link-button::after, .link-button::before {
+    height: 0px;
+  }
+  #about-me-btn {
+    background: white;
+    color: black;
+  }
+  #projects-btn {
+    background: $accent-color;
+    color: white;
+  }
+  #performances-btn {
+    background: $orange;
+    color: black;
+  }
+}
+
+#lm-live {
+  color: white;
+}
+
+#lm-code {
+  color: white;
+}
+
+#lm-dance {
+  color: white;
 }

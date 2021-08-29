@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Poppins&display=swap');
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.hidden {
+  display: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+a::after {
+  content: "";
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+    -webkit-transform: scaleX(0);
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: -webkit-transform .8s cubic-bezier(.19,1,.22,1);
+    transition: -webkit-transform .8s cubic-bezier(.19,1,.22,1);
+    -o-transition: -o-transform .8s cubic-bezier(.19,1,.22,1);
+    -moz-transition: transform .8s cubic-bezier(.19,1,.22,1),-moz-transform .8s cubic-bezier(.19,1,.22,1);
+    transition: transform .8s cubic-bezier(.19,1,.22,1),-webkit-transform .8s cubic-bezier(.19,1,.22,1),-moz-transform .8s cubic-bezier(.19,1,.22,1),-o-transform .8s cubic-bezier(.19,1,.22,1);
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+.ignore-a {
+  display: block;
+}
+
+.ignore-a::before, .ignore-a::after {
+  height: 0px;
+}
