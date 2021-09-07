@@ -38,14 +38,14 @@ class Menu extends React.Component {
         <div className={"lm-menu-backdrop " + additionalClass} onClick={() => this.props.onClick(false)}></div>
         <div className={"lm-menu-content " + additionalClass}>
           <div className={"lm-menu-items"}>
-            <Link to="/about-me">About Me</Link>
-            <Link to="/resume">Resume</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/performances">Performances</Link>
-            {/* <Link to="/">Book Recommendations</Link> */}
-            {/* <Link to="/">Contacts</a> */}
+            <Link to="/about-me" replace>About Me</Link>
+            <Link to="/resume" replace>Resume</Link>
+            <Link to="/projects" replace>Projects</Link>
+            <Link to="/performances" replace>Performances</Link>
+            {/* <Link to="/" replace>Book Recommendations</Link> */}
+            {/* <Link to="/" replace>Contacts</a> */}
             <div className={"lm-menu-icons"}>
-              <a target="mailto:maliyp@cs.washington.edu"><img src="/images/mail_icon.png" /></a>
+              <a href="mailto:maliyp@cs.washington.edu"><img src="/images/mail_icon.png" /></a>
               <a target="_blank" href="https://www.linkedin.com/in/louis-maliyam/"><img src="/images/linkedin_icon.png" /></a>
               <a target="_blank" href="https://github.com/louismlym"><img src="/images/github_icon.png" /></a>
             </div>

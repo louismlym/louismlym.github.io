@@ -37,22 +37,25 @@ class DivToShowHide extends React.Component {
   }
 
   render() {
-    const keyframe = keyframes`
-      0% { ${this.props.initialStyles} opacity: 0; }
-      100% { opacity: 1; }
-    `;
-    
-    const animation = props =>
-    css`
-      ${keyframe} ${this.props.animationTime} ease-out;
-    `
+    if (!this.div) {
+      const keyframe = keyframes`
+        0% { ${this.props.initialStyles} opacity: 0; }
+        100% { opacity: 1; }
+      `;
+      
+      const animation = props =>
+      css`
+        ${keyframe} ${this.props.animationTime} ease-out;
+      `
 
-    const Div = styled.div`
-      animation: ${animation};
-    `;
+      this.div = styled.div`
+        animation: ${animation};
+      `;
+    }
+    const Div = this.div;
 
     return (
-      <Div ref="div" id={this.props.id} className={`div-to-show-hide before-scroll ${this.props.className}`}>
+      <Div ref="div" id={this.props.id} className={`div-to-show-hide before-scroll ${this.props.className ? this.props.className : ""}`}>
         {this.props.element}
       </Div>
     );

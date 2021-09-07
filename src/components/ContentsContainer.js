@@ -95,7 +95,7 @@ class ContentsContainer extends React.Component {
           animationTime="1.5s" />
         <DivToShowHide
           initialStyles="top: 72%;"
-          element={<Link to="/about-me" className="link-button ignore-a">
+          element={<Link to="/about-me" className="link-button ignore-a" replace>
             <button id="about-me-btn" className="no-select">About Me</button>
             </Link>}
           animationTime="1.5s" />
@@ -116,7 +116,7 @@ class ContentsContainer extends React.Component {
           animationTime="1.5s" />
         <DivToShowHide
           initialStyles="top: 72%;"
-          element={<Link to="/projects" className="link-button ignore-a">
+          element={<Link to="/projects" className="link-button ignore-a" replace>
             <button id="projects-btn" className="no-select">Projects</button>
             </Link>}
           animationTime="1.5s" />
@@ -137,7 +137,7 @@ class ContentsContainer extends React.Component {
           animationTime="1.5s" />
         <DivToShowHide
           initialStyles="top: 72%;"
-          element={<Link to="/performances" className="link-button ignore-a">
+          element={<Link to="/performances" className="link-button ignore-a" replace>
             <button id="performances-btn" className="no-select">Performances</button>
             </Link>}
           animationTime="1.5s" />
